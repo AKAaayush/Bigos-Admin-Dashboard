@@ -1,11 +1,22 @@
 import React from "react";
 import Header from "./components/Header";
 import SideNav from "./components/SideNav";
+import DashboardCard from "./components/DashboardCard";
+
+import { Link, Redirect } from "react-router-dom";
+
 const Home = () => {
   return (
     <div>
-      <Header />
-      <SideNav />
+      {localStorage.getItem("token") ? (
+        <>
+          <Header />
+          <SideNav />
+          <DashboardCard />
+        </>
+      ) : (
+        <Redirect to="/"></Redirect>
+      )}
     </div>
   );
 };
