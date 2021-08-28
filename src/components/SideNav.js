@@ -51,9 +51,9 @@ const SideNav = () => {
           </li>
 
           <li>
-            <a href="login.html">
+            <Link to="/">
               <em class="fa fa-power-off">&nbsp;</em> Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
