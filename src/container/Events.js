@@ -75,7 +75,8 @@ const Events = () => {
 
                       <td>{Date(item.event_date).substr(0, 10)}</td>
                       <td>
-                        <button>Edit</button>|<button>Delete</button>
+                        <Link to={"editevent/" + item._id}>Edit</Link>|
+                        <Link to="#">Delete</Link>
                       </td>
                     </tr>
                   );

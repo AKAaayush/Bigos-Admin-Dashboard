@@ -8,6 +8,8 @@ export default {
 
   // Events
   getAllEvents: baseUrl + "admin/get/event",
+  getSingleEvent: baseUrl + "admin/get/eventid/",
+  updateEvent: baseUrl + "admin/update/event/",
 
   // Users
   getAllActiveUsers: baseUrl + "admin/getalluser",
@@ -17,4 +19,7 @@ export default {
 
   // logout
   logout: baseUrl + "admin/logout",
+
+  // upload image
+  uploadImage: "https://bigos-image-uploader.herokuapp.com/api/uploadImage",
 };

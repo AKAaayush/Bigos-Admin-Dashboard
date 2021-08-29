@@ -5,6 +5,7 @@ import Product from "../container/Product";
 import Events from "../container/Events";
 import Users from "../container/Users";
 import Profile from "../container/Profile";
+import EditEvent from "../container/EditEvent";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const Routes = () => {
@@ -18,6 +19,7 @@ const Routes = () => {
           <Route path="/events" component={Events} />
           <Route path="/users" component={Users} />
           <Route path="/profile" component={Profile} />
+          <Route path="/editevent/:id" component={EditEvent} />
         </Switch>
       </Router>
     </>

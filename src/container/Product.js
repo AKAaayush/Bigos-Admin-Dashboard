@@ -107,9 +107,9 @@ const Product = () => {
                       </td>
                       <td>{Date(item.created_at).substr(0, 10)}</td>
                       <td>
-                        <button onClick={deleteProduct.bind(this, item._id)}>
+                        <Link onClick={deleteProduct.bind(this, item._id)}>
                           Delete
-                        </button>
+                        </Link>
                       </td>
 
                       {/* <td><Link to ={'updatefood/'+ fooditem._id}>Update</Link>| <a href ="/fooditems"  onClick={this.deleteFood.bind(this, fooditem._id)}>Delete</a></td> */}
