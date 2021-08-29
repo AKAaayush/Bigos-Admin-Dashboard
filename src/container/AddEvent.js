@@ -11,8 +11,6 @@ const EditEvent = (props) => {
   const [event_desc, setEventDesc] = useState("");
   const [event_image, setEventImage] = useState("");
 
-  //   Single Event fetch
-
   //   update Event
   const updateEvent = () => {
     axios({
