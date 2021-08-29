@@ -18,6 +18,7 @@ export default {
 
   // admin
   checkUser: baseUrl + "admin/checklogin",
+  updateAdmin: baseUrl + "admin/update/",
 
   // logout
   logout: baseUrl + "admin/logout",
