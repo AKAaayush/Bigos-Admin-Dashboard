@@ -25,14 +25,14 @@ const SideNav = () => {
 
         <ul class="nav menu">
           <li class="active">
-            <a href="index.html">
+            <Link to="/home">
               <em class="fa fa-dashboard">&nbsp;</em> Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="/product">
               <em class="fa fa-cutlery">&nbsp;</em> Product
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#">

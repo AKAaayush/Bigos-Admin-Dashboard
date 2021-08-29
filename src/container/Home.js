@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./components/Header";
-import SideNav from "./components/SideNav";
-import DashboardCard from "./components/DashboardCard";
+import Header from "../components/Header";
+import SideNav from "../components/SideNav";
+import DashboardCard from "../components/DashboardCard";
 
 import { Link, Redirect } from "react-router-dom";
 
