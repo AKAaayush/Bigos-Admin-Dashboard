@@ -34,6 +34,25 @@ const Product = () => {
       });
   };
 
+  //   Delete Product
+  const deleteProduct = (id) => {
+    console.log(id);
+    axios({
+      method: "DELETE",
+      url: api.deleteProduct + id,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = "/product";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getAllProduct();
     setTimeout(() => {
@@ -88,7 +107,9 @@ const Product = () => {
                       </td>
                       <td>{Date(item.created_at).substr(0, 10)}</td>
                       <td>
-                        <button>Delete</button>
+                        <button onClick={deleteProduct.bind(this, item._id)}>
+                          Delete
+                        </button>
                       </td>
 
                       {/* <td><Link to ={'updatefood/'+ fooditem._id}>Update</Link>| <a href ="/fooditems"  onClick={this.deleteFood.bind(this, fooditem._id)}>Delete</a></td> */}

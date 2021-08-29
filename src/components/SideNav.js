@@ -1,9 +1,31 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../constant/api";
 import { Link, Redirect } from "react-router-dom";
 
 const SideNav = () => {
+  const [adminDetails, setAdminDetails] = useState({});
+
+  const checkLogin = () => {
+    axios({
+      method: "GET",
+      url: api.checkUser,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAdminDetails(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
   const logout = () => {
     axios({
       method: "DELETE",
@@ -22,19 +44,16 @@ const SideNav = () => {
         console.log(err);
       });
   };
+
   return (
     <div>
       <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <div class="profile-sidebar">
           <div class="profile-userpic">
-            <img
-              src="http://placehold.it/50/30a5ff/fff"
-              class="img-responsive"
-              alt=""
-            />
+            <img src={adminDetails.image} class="img-responsive" alt="" />
           </div>
           <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Username</div>
+            <div class="profile-usertitle-name">{adminDetails.name}</div>
             <div class="profile-usertitle-status">
               <span class="indicator label-success"></span>Online
             </div>

@@ -4,6 +4,7 @@ export default {
 
   // Product
   getAllProduct: baseUrl + "admin/view/product",
+  deleteProduct: baseUrl + "admin/food/delete/",
 
   // Events
   getAllEvents: baseUrl + "admin/get/event",
