@@ -40,9 +40,9 @@ const SideNav = () => {
             </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="/users">
               <em class="fa fa-users">&nbsp;</em> Users
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#">

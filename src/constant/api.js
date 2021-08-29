@@ -7,4 +7,7 @@ export default {
 
   // Events
   getAllEvents: baseUrl + "admin/get/event",
+
+  // Users
+  getAllActiveUsers: baseUrl + "admin/getalluser",
 };
