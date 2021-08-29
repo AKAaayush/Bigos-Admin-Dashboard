@@ -1,6 +1,71 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import api from "../constant/api";
 
 const DashboardCard = () => {
+  const [productNum, setProductNum] = useState("");
+  const [eventNum, setEventNum] = useState("");
+  const [userNum, setUserNum] = useState("");
+
+  const getAllProduct = () => {
+    axios({
+      method: "GET",
+      url: api.getAllProduct,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        const num = res.data.results.length;
+        console.log(num);
+        setProductNum(num);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getAllEvents = () => {
+    axios({
+      method: "GET",
+      url: api.getAllEvents,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        const num = res.data.results.length;
+        console.log(num);
+        setEventNum(num);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getAllUsers = () => {
+    axios({
+      method: "GET",
+      url: api.getAllActiveUsers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        const num = res.data.results.length;
+        console.log(num);
+        setUserNum(num);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getAllProduct();
+    getAllEvents();
+    getAllUsers();
+  });
   return (
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
       <div class="panel panel-container">
@@ -8,18 +73,18 @@ const DashboardCard = () => {
           <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-teal panel-widget border-right">
               <div class="row no-padding">
-                <em class="fa fa-xl fa-shopping-cart color-blue"></em>
-                <div class="large">120</div>
-                <div class="text-muted">New Orders</div>
+                <em class="fa fa-xl fa-cutlery color-blue"></em>
+                <div class="large">{productNum}</div>
+                <div class="text-muted">Products</div>
               </div>
             </div>
           </div>
           <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-blue panel-widget border-right">
               <div class="row no-padding">
-                <em class="fa fa-xl fa-comments color-orange"></em>
-                <div class="large">52</div>
-                <div class="text-muted">Comments</div>
+                <em class="fa fa-xl fa-calendar color-orange"></em>
+                <div class="large">{eventNum}</div>
+                <div class="text-muted">Events</div>
               </div>
             </div>
           </div>
@@ -27,7 +92,7 @@ const DashboardCard = () => {
             <div class="panel panel-orange panel-widget border-right">
               <div class="row no-padding">
                 <em class="fa fa-xl fa-users color-teal"></em>
-                <div class="large">24</div>
+                <div class="large">{userNum}</div>
                 <div class="text-muted">New Users</div>
               </div>
             </div>
@@ -35,9 +100,9 @@ const DashboardCard = () => {
           <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-red panel-widget ">
               <div class="row no-padding">
-                <em class="fa fa-xl fa-search color-red"></em>
-                <div class="large">25.2k</div>
-                <div class="text-muted">Page Views</div>
+                <em class="fa fa-xl fa-download color-red"></em>
+                <div class="large">{userNum}k</div>
+                <div class="text-muted">App Downloads</div>
               </div>
             </div>
           </div>
