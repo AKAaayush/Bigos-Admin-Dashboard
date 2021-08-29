@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:2020/api/";
+const baseUrl = "https://bigos-api.herokuapp.com/api/";
 export default {
   login: baseUrl + "admin/login",
 
