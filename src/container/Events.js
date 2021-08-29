@@ -24,11 +24,33 @@ const Events = () => {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-    }).then((res) => {
-      console.log(res.data);
-      setEvents(res.data.results);
-    });
+    })
+      .then((res) => {
+        console.log(res.data);
+        setEvents(res.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+  //   Delete Event
+  const eventDelete = (id) => {
+    axios({
+      method: "DELETE",
+      url: api.deleteEvent + id,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = "/events";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getAllEvents();
     setTimeout(() => {
@@ -76,7 +98,9 @@ const Events = () => {
                       <td>{Date(item.event_date).substr(0, 10)}</td>
                       <td>
                         <Link to={"editevent/" + item._id}>Edit</Link>|
-                        <Link to="#">Delete</Link>
+                        <Link onClick={eventDelete.bind(this, item._id)}>
+                          Delete
+                        </Link>
                       </td>
                     </tr>
                   );

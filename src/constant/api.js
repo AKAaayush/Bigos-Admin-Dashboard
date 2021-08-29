@@ -10,6 +10,7 @@ export default {
   getAllEvents: baseUrl + "admin/get/event",
   getSingleEvent: baseUrl + "admin/get/eventid/",
   updateEvent: baseUrl + "admin/update/event/",
+  deleteEvent: baseUrl + "admin/delete/event/",
 
   // Users
   getAllActiveUsers: baseUrl + "admin/getalluser",
