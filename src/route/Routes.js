@@ -4,6 +4,7 @@ import Home from "../container/Home";
 import Product from "../container/Product";
 import Events from "../container/Events";
 import Users from "../container/Users";
+import Profile from "../container/Profile";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
           <Route path="/product" component={Product} />
           <Route path="/events" component={Events} />
           <Route path="/users" component={Users} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </>

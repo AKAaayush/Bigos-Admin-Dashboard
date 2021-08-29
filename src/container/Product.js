@@ -10,6 +10,7 @@ import "jquery/dist/jquery.min.js";
 import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
+import Title from "../components/Title";
 // api
 import api from "../constant/api";
 
@@ -51,6 +52,8 @@ const Product = () => {
         <div>
           <Header />
           <SideNav />
+          <Title name="Product" />
+
           <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <table id="example" class="display">
               <thead>

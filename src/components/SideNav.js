@@ -45,9 +45,9 @@ const SideNav = () => {
             </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="/profile">
               <em class="fa fa-user">&nbsp;</em> Profile
-            </a>
+            </Link>
           </li>
 
           <li>

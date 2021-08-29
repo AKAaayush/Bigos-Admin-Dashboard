@@ -10,4 +10,7 @@ export default {
 
   // Users
   getAllActiveUsers: baseUrl + "admin/getalluser",
+
+  // admin
+  checkUser: baseUrl + "admin/checklogin",
 };
