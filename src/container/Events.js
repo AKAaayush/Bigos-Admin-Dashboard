@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import { Link, Redirect } from "react-router-dom";
+
 import SideNav from "../components/SideNav";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+// import { Link, Redirect } from "react-router-dom";
 //Bootstrap and jQuery libraries
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
@@ -12,29 +14,22 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
 // api
 import api from "../constant/api";
-
-const Product = () => {
-  const [products, setProducts] = useState([]);
-
-  const getAllProduct = () => {
+const Events = () => {
+  const [event, setEvents] = useState([]);
+  const getAllEvents = () => {
     axios({
       method: "GET",
-      url: api.getAllProduct,
+      url: api.getAllEvents,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-    })
-      .then((res) => {
-        console.log(res.data);
-        setProducts(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then((res) => {
+      console.log(res.data);
+      setEvents(res.data.results);
+    });
   };
-
   useEffect(() => {
-    getAllProduct();
+    getAllEvents();
     setTimeout(() => {
       $("#example").DataTable({
         lengthMenu: [
@@ -58,37 +53,27 @@ const Product = () => {
                   <th>SN</th>
                   <th>Product Name</th>
                   <th>Product Description</th>
-                  <th>Product Price</th>
-                  <th>Product Image</th>
-                  <th>Product Category</th>
-                  <th>Product Uploaded by</th>
-                  <th>User Image</th>
+                  <th>Image</th>
                   <th>Date</th>
+
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {products.map((item, index) => {
+                {event.map((item, index) => {
                   return (
                     <tr>
                       <th scope="row">{index + 1}</th>
-                      <td>{item.product_name}</td>
-                      <td>{item.product_desc}</td>
-                      <td>{item.product_price}</td>
+                      <td>{item.event_name}</td>
+                      <td>{item.event_desc}</td>
                       <td>
-                        <img src={item.image} width="80" />
-                      </td>
-                      <td> {item.category}</td>
-                      <td> {item.user_id.name}</td>
-                      <td>
-                        <img src={item.user_id.image} width="80" />
-                      </td>
-                      <td>{Date(item.created_at).substr(0, 10)}</td>
-                      <td>
-                        <button>Delete</button>
+                        <img src={item.event_image} width="80" />
                       </td>
 
-                      {/* <td><Link to ={'updatefood/'+ fooditem._id}>Update</Link>| <a href ="/fooditems"  onClick={this.deleteFood.bind(this, fooditem._id)}>Delete</a></td> */}
+                      <td>{Date(item.event_date).substr(0, 10)}</td>
+                      <td>
+                        <button>Edit</button>|<button>Delete</button>
+                      </td>
                     </tr>
                   );
                 })}
@@ -103,4 +88,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Events;

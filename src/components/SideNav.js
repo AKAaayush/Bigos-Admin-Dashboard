@@ -35,9 +35,9 @@ const SideNav = () => {
             </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="/events">
               <em class="fa fa-calendar">&nbsp;</em> Events
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#">

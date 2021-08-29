@@ -4,4 +4,7 @@ export default {
 
   // Product
   getAllProduct: baseUrl + "admin/view/product",
+
+  // Events
+  getAllEvents: baseUrl + "admin/get/event",
 };
