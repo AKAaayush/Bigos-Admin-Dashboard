@@ -111,8 +111,6 @@ const Product = () => {
                           Delete
                         </Link>
                       </td>
-
-                      {/* <td><Link to ={'updatefood/'+ fooditem._id}>Update</Link>| <a href ="/fooditems"  onClick={this.deleteFood.bind(this, fooditem._id)}>Delete</a></td> */}
                     </tr>
                   );
                 })}

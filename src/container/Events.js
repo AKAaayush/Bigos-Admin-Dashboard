@@ -107,6 +107,7 @@ const Events = () => {
                 })}
               </tbody>
             </table>
+            <Link to="/addevent">Add Event</Link>
           </div>
         </div>
       ) : (

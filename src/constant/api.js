@@ -3,6 +3,7 @@ export default {
   login: baseUrl + "admin/login",
 
   // Product
+  addEvent: baseUrl + "admin/add/event",
   getAllProduct: baseUrl + "admin/view/product",
   deleteProduct: baseUrl + "admin/food/delete/",
 

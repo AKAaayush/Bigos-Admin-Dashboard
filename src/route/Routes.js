@@ -6,6 +6,7 @@ import Events from "../container/Events";
 import Users from "../container/Users";
 import Profile from "../container/Profile";
 import EditEvent from "../container/EditEvent";
+import AddEvent from "../container/AddEvent";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const Routes = () => {
@@ -20,6 +21,7 @@ const Routes = () => {
           <Route path="/users" component={Users} />
           <Route path="/profile" component={Profile} />
           <Route path="/editevent/:id" component={EditEvent} />
+          <Route path="/addevent" component={AddEvent} />
         </Switch>
       </Router>
     </>

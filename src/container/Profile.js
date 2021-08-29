@@ -34,7 +34,7 @@ const Profile = () => {
         <div>
           <Header />
           <SideNav />
-          <Title name="Profile" />
+          <Title name="Admin Profile" />
           <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <p>Name:{adminDetails.name}</p>
             <p>Address:{adminDetails.address}</p>
