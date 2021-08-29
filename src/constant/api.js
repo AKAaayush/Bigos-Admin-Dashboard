@@ -13,4 +13,7 @@ export default {
 
   // admin
   checkUser: baseUrl + "admin/checklogin",
+
+  // logout
+  logout: baseUrl + "admin/logout",
 };

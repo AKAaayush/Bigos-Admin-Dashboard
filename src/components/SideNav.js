@@ -1,7 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState } from "react";
+import api from "../constant/api";
+import { Link, Redirect } from "react-router-dom";
 
 const SideNav = () => {
+  const logout = () => {
+    axios({
+      method: "DELETE",
+      url: api.logout,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        localStorage.removeItem("token");
+        localStorage.removeItem("isLogin");
+        window.location.href = "/";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
@@ -51,7 +71,7 @@ const SideNav = () => {
           </li>
 
           <li>
-            <Link to="/">
+            <Link to="/" onClick={logout}>
               <em class="fa fa-power-off">&nbsp;</em> Logout
             </Link>
           </li>
